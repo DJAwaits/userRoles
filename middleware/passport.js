@@ -44,12 +44,12 @@ passport.deserializeUser(async function (user, done){
     const userModel = await User.findByPk(user.id, {
         include: [
             {
-                model:Role,
+                model: Role,
                 as: 'role',
                 include: [
                     {
                         model: Permission,
-                        as: 'permission'
+                        as: 'permissions'
                     }
                 ],
             }
